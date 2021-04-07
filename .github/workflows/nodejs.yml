@@ -9,31 +9,31 @@ on:
   pull_request:
     branches: [ main, develop ]
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x]
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run coverage
-      env:
-        CI: true
-    - run: npm run lint
-      env:
-        CI: true
-    - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+#  test:
+#    runs-on: ubuntu-latest
+#    strategy:
+#      matrix:
+#        node-version: [12.x]
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Use Node.js ${{ matrix.node-version }}
+#      uses: actions/setup-node@v1
+#      with:
+#        node-version: ${{ matrix.node-version }}
+#    - run: npm ci
+#    - run: npm run coverage
+#      env:
+#        CI: true
+#    - run: npm run lint
+#      env:
+#        CI: true
+#    - name: Coveralls
+#        uses: coverallsapp/github-action@master
+#        with:
+#          github-token: ${{ secrets.GITHUB_TOKEN }}
   buildTest:
     name: Build and push to dockerhub using develop tag
-    needs: test
+#    needs: test
     if: ${{ github.ref == 'refs/heads/develop' && github.event_name == 'push' }}
     runs-on: ubuntu-latest
     steps:
@@ -56,7 +56,7 @@ jobs:
         run: echo ${{ steps.docker_build.outputs.digest }}
   buildProdAndRelease:
     name: Release, build and push to dockerhub using tag version
-    needs: test
+#    needs: test
     if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'push'}}
     runs-on: ubuntu-latest
     steps:
