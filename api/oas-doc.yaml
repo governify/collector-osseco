@@ -1,0 +1,192 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Computation list
+  description: >-
+    This is an OpenAPI Specification created by oas-wizard
+    (https://github.com/pafmon/oas-wizard)  
+  contact:
+    name: PabloFM
+    email: pablofm@us.es
+    url: http://www.isa.us.es
+  license:
+    name: MIT
+    url: http://opensource.org/licenses/MIT
+paths:
+  /api/v2/computations:
+    post:
+      description: Asks for the metric to be computed from a given DSL
+      operationId: addComputation
+      responses:
+        201:
+          description: Computation created and being computed. Ask on computation endpoint for the result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/computationInfo'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+      requestBody:
+        x-name: dsl
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/dsl'
+        description: DSL the collector receives to compute
+        required: true
+  /api/v2/computations/{computationId}:
+    get:
+      description: Returns computations by id if they are already calculated
+      operationId: findComputationById
+      parameters:
+        - name: computationId
+          in: path
+          description: id of the computation to be returned
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Computation returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/computationsResponse'
+        202:
+          description: Request is correct but computation is still being calculated
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/errorModel'
+  /api/v2/updateMetricValues/{osseco}:
+    get:
+      description: Update all the metric values from an OSSECO
+      operationId: update
+      parameters:
+        - name: osseco
+          in: path
+          description: OSSECO's name
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: computer response
+components:
+  schemas:
+    errorModel:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    dsl:
+      description: What the collector receives to compute.
+      type: object
+      properties:
+        metric:
+          type: object
+          properties:
+            computing:
+              type: string
+              minLength: 1
+            element:
+              type: string
+              minLength: 1
+            event:
+              type: object
+            scope:
+              type: object
+            window:
+              type: object
+              properties:
+                initial:
+                  type: string
+                  minLength: 1
+                period:
+                  type: string
+                  minLength: 1
+                type:
+                  type: string
+                  minLength: 1
+                end:
+                  type: string
+                  minLength: 1
+              required:
+                - initial
+                - period
+                - type
+                - end
+          required:
+            - computing
+            - element
+            - event
+            - scope 
+            - window 
+        config:
+          type: object      
+      required:
+        - config
+        - metric
+    computationInfo:
+      description: What the collector returns to ask for the computation later. Computation is the identifier.
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        computation:
+          type: string 
+    computationsResponse:
+      description: The response with all the computations.
+      type: object
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+        computations:
+          type: array
+          items:
+              $ref: '#/components/schemas/computation'
+    computation:
+      description: The metric calculated.
+      type: object
+      properties:
+        scope:
+          type: object
+        period:
+          type: object
+          properties:                     
+            from:
+              type: string
+              minLength: 1
+            to:
+              type: string
+              minLength: 1
+          required:
+            - from
+            - to
+        evidences:
+          type: array
+          items:
+            type: object
+        value:
+          type: number
+      required:
+        - scope
+        - period
+        - evidences
+        - value

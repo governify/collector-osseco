@@ -1,0 +1,230 @@
+[
+    {
+        "_id": "5f060abca7d11fded1b57ed0",
+        "id": "tpa-20200708204-Eclipse",
+        "version": "1.0.0",
+        "type": "agreement",
+        "context": {
+            "validity": {
+                "initial": "2019-01-01",
+                "timeZone": "Europe/Madrid"
+            },
+            "infrastructure": {
+                "registry": "https://registry.osseco.governify.io/api/v6",
+                "reporter": "https://reporter.osseco.governify.io/api/v4",
+                "dashboard": "https://dashboard.osseco.governify.io/"
+            },
+            "definitions": {
+                "schemas": {},
+                "scopes": {
+                    "development": {
+                        "open_source_name": {
+                            "name": "Open Source Name",
+                            "description": "The Open Source name",
+                            "type": "string",
+                            "default": "Eclipse"
+                        },
+                        "link": {
+                            "name": "Open Source Link",
+                            "description": "The Open Source Link",
+                            "type": "string",
+                            "default": ""
+                        }
+                    }
+                },
+                "computers": {
+                    "pivotaltracker": {
+                        "url": "http://osseco.collector.osseco.governify.io",
+                        "apiVersion": "2",
+						"endpoint": "/computations",
+                        "config": {
+                            "schedules": {
+                                "24x7": "L-DT00:00-23:59/H",
+                                "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+                            },
+                            "holidays": "https://registry.osseco.governify.io/static/holidays.json"
+                        }
+                    }
+                }
+            }
+        },
+        "terms": {
+            "metrics": {
+                "OBJ1": {
+                    "computer": {
+                        "endpoint": "/computations",
+                        "url": "http://osseco.collector.osseco.governify.io",
+                        "apiVersion": "2",
+                        "config": {
+                            "schedules": {
+                                "24x7": "L-DT00:00-23:59/H",
+                                "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+                            }
+                        }
+                    },
+                    "measure": {
+                        "computing": "actual",
+                        "element": "number",
+                        "objetive": "SIZE_BAYESIAN_GOOD > 0.9 AND NUMBEROFCOMMITERS_ABSOLUT > 100",
+                        "osseco": "Eclipse"
+                    },
+                    "scope": {
+                        "open_source_name": {
+                            "name": "Open Source Name",
+                            "description": "The Open Source name",
+                            "type": "string",
+                            "default": "Eclipse"
+                        },
+                        "link": {
+                            "name": "Open Source Link",
+                            "description": "The Open Source Link",
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    "schema": {
+                        "description": "SIZE_BAYESIAN_GOOD > 0.9 AND NUMBEROFCOMMITERS_ABSOLUT > 100",
+                        "type": "double"
+                    }
+                },
+                "SIZE_BAYESIAN_GOOD": {
+                    "computer": {
+						"endpoint": "/computations",
+                        "url": "http://osseco.collector.osseco.governify.io",
+                        "apiVersion": "2",
+                        "config": {
+                            "schedules": {
+                                "24x7": "L-DT00:00-23:59/H",
+                                "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+                            }
+                        }
+                    },
+                    "measure": {
+                        "computing": "actual",
+                        "element": "number",
+                        "objetive": "SIZE_BAYESIAN_GOOD",
+                        "osseco": "Eclipse"
+                    },
+                    "scope": {
+                        "open_source_name": {
+                            "name": "Open Source Name",
+                            "description": "The Open Source name",
+                            "type": "string",
+                            "default": "Eclipse"
+                        },
+                        "link": {
+                            "name": "Open Source Link",
+                            "description": "The Open Source Link",
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    "schema": {
+                        "description": "SIZE_BAYESIAN_GOOD",
+                        "type": "double"
+                    }
+                },
+                "NUMBEROFCOMMITERS_ABSOLUT": {
+                    "computer": {
+                        "endpoint": "/computations",
+                        "url": "http://osseco.collector.osseco.governify.io",
+                        "apiVersion": "2",
+                        "config": {
+                            "schedules": {
+                                "24x7": "L-DT00:00-23:59/H",
+                                "normal": "[{\"from\":\"1/1\",\"to\":\"6/14\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"6/15\",\"to\":\"9/15\",\"schedule\":\"L-VT08:30-15:00/H\"},{\"from\":\"9/16\",\"to\":\"12/23\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/24\",\"to\":\"12/24\",\"schedule\":\"L-VT09:00-13:00/H\"},{\"from\":\"12/25\",\"to\":\"12/30\",\"schedule\":\"L-VT09:00-18:00/H\"},{\"from\":\"12/31\",\"to\":\"12/31\",\"schedule\":\"L-VT09:00-13:00/H\"}]"
+                            }
+                        }
+                    },
+                    "measure": {
+                        "computing": "actual",
+                        "element": "number",
+                        "objetive": "NUMBEROFCOMMITERS_ABSOLUT",
+                        "osseco": "Eclipse"
+                    },
+                    "scope": {
+                        "open_source_name": {
+                            "name": "Open Source Name",
+                            "description": "The Open Source name",
+                            "type": "string",
+                            "default": "Eclipse"
+                        },
+                        "link": {
+                            "name": "Open Source Link",
+                            "description": "The Open Source Link",
+                            "type": "string",
+                            "default": ""
+                        }
+                    },
+                    "schema": {
+                        "description": "NUMBEROFCOMMITERS_ABSOLUT",
+                        "type": "double"
+                    }
+                }
+            },
+            "guarantees": [
+                {
+                    "id": "OBJ1",
+                    "description": "SIZE_BAYESIAN_GOOD > 0.9 AND NUMBEROFCOMMITERS_ABSOLUT > 100",
+                    "of": [
+                        {
+                            "scope": {
+                                "project": "Eclipse"
+                            },
+                            "objective": "OBJ1==1",
+                            "with": {
+                                "OBJ1": {}
+                            },
+                            "window": {
+                                "type": "static",
+                                "period": "daily",
+                                "initial": "2019-12-12"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "SIZE_BAYESIAN_GOOD",
+                    "description": "SIZE_BAYESIAN_GOOD > 0.9",
+                    "of": [
+                        {
+                            "scope": {
+                                "project": "Eclipse"
+                            },
+                            "objective": "SIZE_BAYESIAN_GOOD > 0.9",
+                            "with": {
+                                "SIZE_BAYESIAN_GOOD": {}
+                            },
+                            "window": {
+                                "type": "static",
+                                "period": "daily",
+                                "initial": "2019-12-12"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "id": "NUMBEROFCOMMITERS_ABSOLUT",
+                    "description": "NUMBEROFCOMMITERS_ABSOLUT > 100",
+                    "of": [
+                        {
+                            "scope": {
+                                "project": "Eclipse"
+                            },
+                            "objective": "NUMBEROFCOMMITERS_ABSOLUT > 100",
+                            "with": {
+                                "NUMBEROFCOMMITERS_ABSOLUT": {}
+                            },
+                            "window": {
+                                "type": "static",
+                                "period": "daily",
+                                "initial": "2019-12-12"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "__v": 0
+    }
+]
