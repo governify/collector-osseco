@@ -1,10 +1,10 @@
 # Governify Collector v2 Template (POST collector)
-[![Node.js CI](https://github.com/isa-group/governify-collector-v2-template/workflows/Node.js%20CI/badge.svg?branch=master)](https://github.com/isa-group/governify-collector-v2-template/actions)
+[![Node.js CI](https://github.com/governify/collector-osseco/workflows/Node.js%20CI/badge.svg?branch=master)](https://github.com/governify/collector-osseco/actions)
 <a href="https://standardjs.com"><img src="https://img.shields.io/badge/code_style-semistandard-brightgreen.svg" alt="Standard - JavaScript Style Guide"></a>
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![Coverage Status](https://coveralls.io/repos/github/isa-group/governify-collector-v2-template/badge.svg?branch=master)](https://coveralls.io/github/isa-group/governify-collector-v2-template?branch=master)
-[![dependencies Status](https://david-dm.org/isa-group/governify-collector-v2-template/status.svg)](https://david-dm.org/isa-group/governify-collector-v2-template)
-[![devDependencies Status](https://david-dm.org/isa-group/governify-collector-v2-template/dev-status.svg)](https://david-dm.org/isa-group/governify-collector-v2-template)
+[![Coverage Status](https://coveralls.io/repos/github/governify/collector-osseco/badge.svg?branch=main)](https://coveralls.io/github/governify/collector-osseco?branch=main)
+[![dependencies Status](https://david-dm.org/governify/collector-osseco/status.svg)](https://david-dm.org/governify/osseco)
+[![devDependencies Status](https://david-dm.org/governify/collector-osseco/dev-status.svg)](https://david-dm.org/governify/collector-osseco)
 
 ## Overview
 This is a template for creating a new collector for the Governify echosystem.
