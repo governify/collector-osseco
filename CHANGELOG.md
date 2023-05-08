@@ -1,4 +1,8 @@
-# 1.1.0 (2021-04-07)
+## [1.1.1](https://github.com/governify/collector-osseco/compare/v1.1.0...v1.1.1) (2023-05-08)
+
+
+
+# [1.1.0](https://github.com/governify/collector-osseco/compare/f8dd85600becfb24c0495d7ad2d0bcc312491a9a...v1.1.0) (2021-04-07)
 
 
 ### Bug Fixes
